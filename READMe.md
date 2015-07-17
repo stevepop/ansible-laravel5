@@ -26,14 +26,13 @@ The production var files are;
   - Execute vagrant up
 
 ### For Production
-- cd into your ansible directory
+Chnage into your ansible directory
 
 Ensure all relevant production var files have been updated
 
 Execute ansible-playbook -i inventories/prod playbook_prod.yml
 
 This project is still a work-in-progress so their may be a few issues. 
-
 Feel free to contribute changes to this repository by forking a branch and creating a pull request.
 
 
