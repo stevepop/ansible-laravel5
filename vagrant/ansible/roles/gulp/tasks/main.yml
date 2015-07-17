@@ -1,0 +1,29 @@
+---
+- name: Add Repository to install latest Nodejs
+  tags: gulp
+  apt_repository: repo=ppa:chris-lea/node.js
+  register: node_repo
+
+- name: Update apt cache
+  tags: gulp
+  apt:
+    update_cache: yes
+  when: node_repo|changed
+
+- name: Ensure Node.js is installed
+  tags: gulp
+  apt: pkg=nodejs state=latest
+
+- name: Install "gulp"
+  tags: gulp
+  npm: name=gulp global=yes state=latest
+
+- name: Install Bower and Grunt
+  tags: bower
+  npm: name=bower global=yes state=present
+
+
+### Useful links:
+# - http://markgoodyear.com/2014/01/getting-started-with-gulp/
+# - http://trac.vuma.com/wiki/install-gulp
+# - http://bower.io/

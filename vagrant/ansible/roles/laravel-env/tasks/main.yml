@@ -1,0 +1,5 @@
+- name: Download Laravel installer
+  shell: composer global require "laravel/installer=~1.1"
+
+- name: Copy development environment file to project root
+  copy: src=.env dest={{ project_root }}
